@@ -1,7 +1,3 @@
-Certainly! Below is a professionally written README file for your project:
-
----
-
 # Real-Time Object Detection Web Application
 
 ## Overview
