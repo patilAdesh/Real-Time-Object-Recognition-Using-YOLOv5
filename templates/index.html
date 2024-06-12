@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    
+    <title>Live Detection</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Live Object Detection</h1>
+        <h2>
+            <a data-toggle="collapse" href="#howToUse" role="button" aria-expanded="false" aria-controls="howToUse">
+                How to Use
+            </a>
+        </h2>
+        <div class="collapse" id="howToUse">
+            <div class="instructions">
+                <p>To use this application for real-time object detection, follow these steps:</p>
+                <ol>
+                    <li>Ensure your webcam is connected and allowed for use in your browser.</li>
+                    <li>Click on the "Start Live Detection" button below.</li>
+                    <li>Observe the real-time detection results displayed on the screen.</li>
+                    <li>Move objects in front of the camera to see how the model detects them.</li>
+                </ol>
+            </div>
+        </div>
+        <button id="startButton" class="custom-button">Start Live Detection</button>
+        <div id="videoContainer" class="video-container" style="display: none;">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ url_for('video_feed') }}" allow="camera"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            document.getElementById('videoContainer').style.display = 'flex';
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
